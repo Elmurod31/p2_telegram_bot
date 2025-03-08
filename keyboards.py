@@ -10,48 +10,28 @@ get_phone_btn = ReplyKeyboardMarkup(keyboard=[
     ]
 ], resize_keyboard=True)
 
-keyboard = ReplyKeyboardMarkup(resize_keyboard=True, keyboard=[
+add_product_btn = InlineKeyboardMarkup(inline_keyboard=[
     [
-        KeyboardButton(text="Button"),
-        KeyboardButton(text="Yordam"),
-        KeyboardButton(text="Button3"),
+        InlineKeyboardButton(text="Mahsulot qo'shish", callback_data="/add_product"),
     ],
     [
-        KeyboardButton(text="Button4"),
-        KeyboardButton(text="Button5"),
-        KeyboardButton(text="Button6"),
-    ]
-])
-
-inline_keyboard = InlineKeyboardMarkup(
-    inline_keyboard=[
-        [InlineKeyboardButton(text="Inline Keyboard", callback_data="Yordam"),
-         InlineKeyboardButton(text="Inline Keyboard2", callback_data="Test2", url="https://telegram.org")]
-    ]
-)
-
-keyboard1 = ReplyKeyboardMarkup(resize_keyboard=True, keyboard=[
-    [
-        KeyboardButton(text="Button"),
-        KeyboardButton(text="Yordam"),
-        KeyboardButton(text="Help"),
+        InlineKeyboardButton(text="Ichimliklar", callback_data="/ichimliklar"),
+        InlineKeyboardButton(text="Mevalar", callback_data="/Mevalar")
     ],
     [
-        KeyboardButton(text="/images"),
-        KeyboardButton(text="/video"),
-        KeyboardButton(text="Button6"),
+        InlineKeyboardButton(text="Go'sht mahsulotlari", callback_data="/Go'sht mahsulotlari"),
+        InlineKeyboardButton(text="Sut mahsulotlari", callback_data="/Sut mahsulotlari"),
+    ],
+    [
+        InlineKeyboardButton(text="Soatlar", callback_data="/Soatlar"),
+        InlineKeyboardButton(text="Oyoq kiyimlar", callback_data="/Oyoq kiyimlar"),
+    ],
+    [
+        InlineKeyboardButton(text="Elektramobilar", callback_data="/Elektramobilar"),
+        InlineKeyboardButton(text="Smartfonlar", callback_data="/Smartfonlar")
+    ],
+    [
+        InlineKeyboardButton(text="Notebooklar", callback_data="/Notebooklar"),
+        InlineKeyboardButton(text="Kampiyuterlar", callback_data="/Kampiyuterlar"),
     ]
-])
-
-
-
-inline_keyboard1 = InlineKeyboardMarkup(inline_keyboard=[
-        [
-            InlineKeyboardButton(text="Inline Keyboard", callback_data="Yordam"),
-            InlineKeyboardButton(text="Inline Keyboard2", callback_data="Test2", url="https://www.youtube.com/@foreveryakudza")
-        ],
-        [
-            InlineKeyboardButton(text="Inline Keyboard3", callback_data="Test3", url="https://www.youtube.com/c/CardinalPUBG"),
-            InlineKeyboardButton(text="Inline Keyboard4", callback_data="Test4", url="https://hipolink.me/ultrapubg")
-        ]
-])
+], resize_keyboard=True)
