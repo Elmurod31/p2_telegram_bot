@@ -9,7 +9,7 @@ Smartfon_router = Router(name="commands")
 
 
 #Smartfon
-@Smartfon_router.callback_query(F.data == "/Smartfon")
+@Smartfon_router.callback_query(F.data == "/Smartfonlar")
 async def get_Smartfon(call: CallbackQuery, state: FSMContext):
     await state.set_state(UserSmartfonState.brendi)
     await call.message.answer("Smartfonning brendini kiriting:")

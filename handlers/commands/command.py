@@ -34,10 +34,16 @@ async def get_image(msg: types.Message):
 
 @command_router.message(Command("videos"))
 async def get_video(msg: types.Message):
-    video = FSInputFile("videos/20250218-0428-29.7812879.mp4")
+    video = FSInputFile("video/vid.mp4")
     await msg.answer_video(video, caption="Bu screenrecorder")
 
 
 @command_router.message(F.video)
 async def get_video(msg: types.Message):
     await msg.answer("Video uchun rahmat")
+
+@command_router.message(Command("location"))
+async def get_location(msg: types.Message):
+    latitude = 41.32388849517448
+    longitude = 69.24190732742423
+    await msg.answer_location(latitude, longitude)

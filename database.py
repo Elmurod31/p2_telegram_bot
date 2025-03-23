@@ -1,5 +1,9 @@
 import sqlite3
 
+
+from pydantic.v1.validators import float_finite_validator
+
+
 class Database:
     def __init__(self):
         self.connection = sqlite3.connect("database.db")
@@ -180,6 +184,47 @@ class Database:
 )
         self.connection.commit()
 
+    # Notebooklar tablesini yaratish
+    def create_table_Notebooklar(self):
+        self.cursor.execute(
+            """CREATE TABLE IF NOT EXISTS Notebooklar(
+            id INTEGER PRIMARY KEY,
+            brendi CHAR NOT NULL,
+            protsessor CHAR NOT NULL,
+            ram CHAR NOT NULL,
+            narxi CHAR NOT NULL)
+        """)
+
+    def add_to_Notebooklar(self, brendi, protsessor, ram, narxi):
+        self.create_table_Notebooklar()
+        self.cursor.execute("""
+            INSERT INTO Notebooklar(brendi, protsessor, ram, narxi)
+                VALUES (?, ?, ?, ?)
+                """, (brendi, protsessor, ram, narxi)
+                            )
+        self.connection.commit()
+
+
+    # Kampiyuterlar tablesini yaratish
+    def create_table_Kompiyuter(self):
+        self.cursor.execute(
+            """CREATE TABLE IF NOT EXISTS Kompiyuterlar(
+            id INTEGER PRIMARY KEY,
+            brendi CHAR NOT NULL,
+            protsessor CHAR NOT NULL,
+            videokarta CHAR NOT NULL,
+            narxi CHAR NOT NULL)
+        """)
+
+    def add_to_Kompyuterlar(self, brendi, protsessor, videokarta, narxi):
+        self.create_table_Kompiyuter()
+        self.cursor.execute("""
+            INSERT INTO Kompiyuterlar(brendi, protsessor, videokarta, narxi)
+                VALUES (?, ?, ?, ?)
+                """, (brendi, protsessor, videokarta, narxi)
+                            )
+        self.connection.commit()
+
 
 
 
@@ -213,6 +258,26 @@ class Database:
             return user
         return None
 
+
+
+
+
+    def get_ichimliklar(self, ):
+        ichimliklar = self.cursor.execute("""
+        SELECT * FROM ichimliklar""")
+        return ichimliklar.fetchall()
+
+
+    def get_mevalar(self, ):
+        mevalar = self.cursor.execute("""
+        SELECT * FROM mevalar""")
+        return mevalar.fetchall()
+
+
+    def get_goshtlar(self, ):
+        goshtlar = self.cursor.execute("""
+        SELECT * FROM goshtlar""")
+        return goshtlar.fetchall()
 
 # Database obyektini yaratamiz
 db = Database()

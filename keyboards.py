@@ -12,9 +12,6 @@ get_phone_btn = ReplyKeyboardMarkup(keyboard=[
 
 add_product_btn = InlineKeyboardMarkup(inline_keyboard=[
     [
-        InlineKeyboardButton(text="Mahsulot qo'shish", callback_data="/add_product"),
-    ],
-    [
         InlineKeyboardButton(text="Ichimliklar", callback_data="/ichimliklar"),
         InlineKeyboardButton(text="Mevalar", callback_data="/Mevalar")
     ],
@@ -33,5 +30,8 @@ add_product_btn = InlineKeyboardMarkup(inline_keyboard=[
     [
         InlineKeyboardButton(text="Notebooklar", callback_data="/Notebooklar"),
         InlineKeyboardButton(text="Kampiyuterlar", callback_data="/Kampiyuterlar"),
+    ],
+    [
+        InlineKeyboardButton(text="Maxsulotlarni ko'rish", callback_data="/Maxsulotlarni_ko'rish"),
     ]
 ], resize_keyboard=True)
